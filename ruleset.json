@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "url": "data:text/plain,hack"
+      }
+    },
+    "condition": {
+      "urlFilter": "sshwy.cn/zr-api/authenticate",
+      "resourceTypes": ["xmlhttprequest"]
+    }
+  }
+]
