@@ -1,0 +1,30 @@
+name: 发布更新
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    name: 发布更新
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+      - uses: pnpm/action-setup@v3
+      - run: pnpm build
+      - uses: birchill/edge-addon-upload@98bddd1e08131fba97591e7c998cf488fa73d0f3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          access_token_url: ${{ secrets.EDGE_ACCESS_TOKEN_URL }}
+          addon_file: dist/chrome.zip
+          client_id: ${{ secrets.EDGE_CLIENT_ID }}
+          client_secret: ${{ secrets.EDGE_CLIENT_SECRET }}
+          product_id: ${{ secrets.EDGE_PRODUCT_ID }}
+      - uses: AButler/upload-release-assets@98bdb18549b4e4535efed324ac7b8c3fa2a64e54
+        with:
+          files: dist/chrome.zip
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          release-tag: ${{ github.ref_name }}
