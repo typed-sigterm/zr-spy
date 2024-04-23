@@ -30,8 +30,9 @@ jobs:
           client_id: ${{ secrets.EDGE_CLIENT_ID }}
           client_secret: ${{ secrets.EDGE_CLIENT_SECRET }}
           product_id: ${{ secrets.EDGE_PRODUCT_ID }}
-      - uses: AButler/upload-release-assets@98bdb18549b4e4535efed324ac7b8c3fa2a64e54
+      - uses: Xotl/cool-github-releases@d181956417d77bcc4b44a812419539893124c6c7
         with:
-          files: dist/*
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          release-tag: ${{ github.ref_name }}
+          mode: update
+          tag_name: ${{ github.ref_name }}
+          assets: dist/*
+          github_token: ${{ secrets.GITHUB_TOKEN }}
