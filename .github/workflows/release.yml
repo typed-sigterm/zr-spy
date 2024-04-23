@@ -3,6 +3,9 @@ name: 发布更新
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   release:
     name: 发布更新
