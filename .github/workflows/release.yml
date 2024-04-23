@@ -34,5 +34,5 @@ jobs:
         with:
           mode: update
           tag_name: ${{ github.ref_name }}
-          assets: dist/*
+          assets: dist/chrome.zip;dist/chrome.crx
           github_token: ${{ secrets.GITHUB_TOKEN }}
