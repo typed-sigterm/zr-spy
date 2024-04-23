@@ -62,3 +62,5 @@ export function setRequestRuleEnabled(id: number, enabled: boolean) {
     })
   }
 }
+
+export { version } from '../../manifest.json'
