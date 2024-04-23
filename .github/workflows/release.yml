@@ -13,6 +13,8 @@ jobs:
         with:
           node-version-file: .node-version
       - uses: pnpm/action-setup@v3
+        with:
+          run_install: true
       - run: pnpm build
       - uses: cardinalby/webext-buildtools-chrome-crx-action@200e7173cbdb5acb91d381cf9f7a30080b025047
         with:
