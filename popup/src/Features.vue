@@ -16,7 +16,7 @@ const bypassPassword = await useFeature('bypass-password')
 <template>
   <NForm inline label-placement="left" :show-feedback="false">
     <NFormItem label="跳过密码输入步骤">
-      <NSwitch v-model:checked="bypassPassword" />
+      <NSwitch v-model:value="bypassPassword" />
     </NFormItem>
   </NForm>
 </template>
