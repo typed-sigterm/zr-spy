@@ -14,11 +14,9 @@ const bypassPassword = await useFeature('bypass-password')
 </script>
 
 <template>
-  <NFlex vertical>
-    功能设置：
-    <NCheckbox v-model:checked="bypassPassword">
-      跳过密码输入步骤
-    </NCheckbox>
-    更改设置后，需要重进 ZR Tracker 才能生效。
-  </NFlex>
+  <NForm inline label-placement="left" :show-feedback="false">
+    <NFormItem label="跳过密码输入步骤">
+      <NSwitch v-model:checked="bypassPassword" />
+    </NFormItem>
+  </NForm>
 </template>

@@ -2,6 +2,7 @@
 import { zhCN } from 'naive-ui'
 import Features from './Features.vue'
 import Footer from './Footer.vue'
+import Loading from './Loading.vue'
 import WithInitCaution from './WithInitCaution.vue'
 </script>
 
@@ -13,6 +14,9 @@ import WithInitCaution from './WithInitCaution.vue'
         <NDivider style="margin: 8px 0;" />
         <Footer />
       </WithInitCaution>
+      <template #fallback>
+        <Loading />
+      </template>
     </Suspense>
   </NConfigProvider>
 </template>
