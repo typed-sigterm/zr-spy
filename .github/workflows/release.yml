@@ -19,17 +19,12 @@ jobs:
         with:
           run_install: true
       - run: pnpm build
-      - uses: cardinalby/webext-buildtools-chrome-crx-action@200e7173cbdb5acb91d381cf9f7a30080b025047
-        with:
-          zipFilePath: dist/chrome.zip
-          crxFilePath: dist/chrome.crx
-          privateKey: ${{ secrets.CRX_PRIVATE_KEY }}
       - uses: birchill/edge-addon-upload@98bddd1e08131fba97591e7c998cf488fa73d0f3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           access_token_url: ${{ secrets.EDGE_ACCESS_TOKEN_URL }}
-          addon_file: dist/chrome.zip
+          addon_file: dist/extension.zip
           client_id: ${{ secrets.EDGE_CLIENT_ID }}
           client_secret: ${{ secrets.EDGE_CLIENT_SECRET }}
           product_id: ${{ secrets.EDGE_PRODUCT_ID }}
@@ -37,5 +32,5 @@ jobs:
         with:
           mode: update
           tag_name: ${{ github.ref_name }}
-          assets: dist/chrome.zip;dist/chrome.crx
+          assets: dist/extension.zip
           github_token: ${{ secrets.GITHUB_TOKEN }}

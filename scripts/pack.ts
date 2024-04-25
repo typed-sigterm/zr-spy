@@ -19,7 +19,7 @@ const rootDir = path.resolve(__dirname, '..')
 const distDir = path.resolve(rootDir, 'dist')
 if (!existsSync(distDir))
   mkdirSync(distDir)
-const outputPath = path.resolve(distDir, 'chrome.zip')
+const outputPath = path.resolve(distDir, 'extension.zip')
 
 const stream = new zip.Stream()
 for (const file of INCLUDED_FILES)
