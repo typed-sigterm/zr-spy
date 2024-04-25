@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { watch } from 'vue'
-import { setRequestRuleEnabled, useStorageValue } from './utils'
+import { setRulesetStatus, useStorageValue } from './utils'
 
 const bypassPassword = await useStorageValue<boolean>('bypass-password', true)
 watch(bypassPassword, (enabled) => {
-  setRequestRuleEnabled(1, enabled)
+  setRulesetStatus('bypass-password', enabled)
 })
 </script>
 

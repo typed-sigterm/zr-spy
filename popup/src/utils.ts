@@ -44,21 +44,19 @@ export async function useStorageValue<T>(key: string, defaultValue: UnwrapRef<Aw
 }
 
 /**
- * 启用/禁用请求规则。
- * @param id 规则 ID
+ * 启用/禁用请求规则集。
+ * @param id 规则集 ID
  * @param enabled 是否启用
  */
-export function setRequestRuleEnabled(id: number, enabled: boolean) {
+export function setRulesetStatus(id: string, enabled: boolean) {
   if (enabled) {
-    return chrome.declarativeNetRequest.updateStaticRules({
-      rulesetId: 'ruleset',
-      enableRuleIds: [id],
+    return chrome.declarativeNetRequest.updateEnabledRulesets({
+      enableRulesetIds: [id],
     })
   }
   else {
-    return chrome.declarativeNetRequest.updateStaticRules({
-      rulesetId: 'ruleset',
-      disableRuleIds: [id],
+    return chrome.declarativeNetRequest.updateEnabledRulesets({
+      disableRulesetIds: [id],
     })
   }
 }

@@ -8,9 +8,7 @@ import iconGitHub from './assets/github.svg?url'
 <template>
   <NConfigProvider :locale="zhCN">
     <Suspense>
-      <template #default>
-        <Features />
-      </template>
+      <Features />
       <template #fallback>
         <NSkeleton text :repeat="1" />
       </template>

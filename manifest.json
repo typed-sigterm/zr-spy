@@ -19,9 +19,9 @@
   ],
   "declarative_net_request": {
     "rule_resources": [{
-      "id": "ruleset",
+      "id": "bypass-password",
       "enabled": true,
-      "path": "ruleset.json"
+      "path": "rulesets/bypass-password.json"
     }]
   },
   "action": {

@@ -10,9 +10,9 @@ const INCLUDED_FILES = [
   '_locales',
   'dist-popup',
   'icons',
+  'rulesets',
   'LICENSE',
   'manifest.json',
-  'ruleset.json',
 ]
 
 const rootDir = path.resolve(__dirname, '..')
