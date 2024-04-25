@@ -1,6 +1,6 @@
 # ZR spy
 
-<p align="right">——ZR Tracker 辅助工具<p>
+ZR Tracker 辅助工具。
 
 > [!CAUTION]
 > 本项目仅供学习交流使用，禁止用于非法用途！

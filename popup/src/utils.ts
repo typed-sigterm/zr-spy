@@ -1,6 +1,8 @@
 import type { UnwrapRef } from 'vue'
 import { computed, onUnmounted, ref } from 'vue'
 
+export { version } from '../../manifest.json'
+
 /**
  * 获取 `chrome.storage.local` 中的值。
  * @param key 键
@@ -61,4 +63,9 @@ export function setRulesetStatus(id: string, enabled: boolean) {
   }
 }
 
-export { version } from '../../manifest.json'
+/** 重置所有规则集状态为默认值。 */
+export function resetRulesets() {
+  return chrome.declarativeNetRequest.updateEnabledRulesets({
+    enableRulesetIds: ['bypass-password'],
+  })
+}

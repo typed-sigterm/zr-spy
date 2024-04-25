@@ -1,25 +1,19 @@
 <script lang="ts" setup>
 import { zhCN } from 'naive-ui'
 import Features from './Features.vue'
-import { version } from './utils'
-import iconGitHub from './assets/github.svg?url'
+import Footer from './Footer.vue'
+import WithInitCaution from './WithInitCaution.vue'
 </script>
 
 <template>
   <NConfigProvider :locale="zhCN">
     <Suspense>
-      <Features />
-      <template #fallback>
-        <NSkeleton text :repeat="1" />
-      </template>
+      <WithInitCaution>
+        <Features />
+        <NDivider style="margin: 8px 0;" />
+        <Footer />
+      </WithInitCaution>
     </Suspense>
-    <NDivider style="margin: 8px 0;" />
-    <NText :depth="3">
-      ZR spy · v{{ version }} ·
-      <NA href="https://github.com/Zihan-Hu/zr-spy" target="_blank">
-        <img style="vertical-align: text-top;" :src="iconGitHub" alt="GitHub">
-      </NA>
-    </NText>
   </NConfigProvider>
 </template>
 
@@ -28,8 +22,25 @@ import iconGitHub from './assets/github.svg?url'
   margin: 0;
   padding: 0;
 }
+
 body {
   width: 300px;
   margin: 8px;
+}
+
+.slide-enter-active, .slide-leave-active {
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.slide-enter-active {
+  transition-timing-function: ease-out;
+}
+.slide-leave-active {
+  transition-timing-function: ease-in;
+}
+
+.slide-enter-from, .slide-leave-to {
+  transform: translateY(-100%);
+  opacity: 0;
 }
 </style>
