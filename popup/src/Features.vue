@@ -2,15 +2,10 @@
 import { watch } from 'vue'
 import { setRulesetStatus, useStorageValue } from './utils'
 
-async function useFeature(name: string) {
-  const ret = await useStorageValue<boolean>(name, true)
-  watch(ret, (enabled) => {
-    setRulesetStatus(name, enabled)
-  }, { immediate: true })
-  return ret
-}
-
-const bypassPassword = await useFeature('bypass-password')
+const bypassPassword = await useStorageValue<boolean>('bypass-password', true)
+watch(bypassPassword, (enabled) => {
+  setRulesetStatus('bypass-password', enabled)
+}, { immediate: true })
 </script>
 
 <template>
