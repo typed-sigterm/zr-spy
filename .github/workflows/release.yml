@@ -12,25 +12,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version-file: .node-version
-      - uses: pnpm/action-setup@v4
-        with:
-          run_install: true
-      - run: pnpm build
-      - uses: birchill/edge-addon-upload@98bddd1e08131fba97591e7c998cf488fa73d0f3
+          cache: pnpm
+          node-version-file: package.json
+
+      - run: pnpm install
+      - run: pnpm build -b edge
+      - run: pnpm zip -b edge
+
+      - run: pnpm wxt submit --edge-zip .output/*-edge.zip
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EDGE_PRODUCT_ID: ${{ secrets.EDGE_PRODUCT_ID }}
+          EDGE_CLIENT_ID: ${{ secrets.EDGE_CLIENT_ID }}
+          EDGE_CLIENT_SECRET: ${{ secrets.EDGE_CLIENT_SECRET }}
+
+      - id: get-release
+        uses: joutvhu/get-release@9a8271732adc3299a22f8ad09b0a67eb3aa836ac # v1
         with:
-          access_token_url: ${{ secrets.EDGE_ACCESS_TOKEN_URL }}
-          addon_file: dist/extension.zip
-          client_id: ${{ secrets.EDGE_CLIENT_ID }}
-          client_secret: ${{ secrets.EDGE_CLIENT_SECRET }}
-          product_id: ${{ secrets.EDGE_PRODUCT_ID }}
-      - uses: Xotl/cool-github-releases@d181956417d77bcc4b44a812419539893124c6c7
-        with:
-          mode: update
           tag_name: ${{ github.ref_name }}
-          assets: dist/extension.zip
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/release-asset@v3
+        with:
+          pattern: .output/*-edge.zip
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          release-url: ${{ steps.get-release.outputs.upload_url }}

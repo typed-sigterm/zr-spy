@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { watch } from 'vue'
-import { setRulesetStatus, useStorageValue } from './utils'
+import { setRulesetStatus, useStorageItem } from '~/utils/utils'
 
-const bypassPassword = await useStorageValue<boolean>('bypass-password', true)
-watch(bypassPassword, (enabled) => {
+const enabled = await useStorageItem<boolean>('local:enabled', { fallback: true })
+watch(enabled, (enabled) => {
   setRulesetStatus('bypass-password', enabled)
 }, { immediate: true })
 </script>
@@ -11,7 +11,7 @@ watch(bypassPassword, (enabled) => {
 <template>
   <NForm inline label-placement="left" :show-feedback="false">
     <NFormItem label="跳过密码输入步骤">
-      <NSwitch v-model:value="bypassPassword" />
+      <NSwitch v-model:value="enabled" />
     </NFormItem>
   </NForm>
 </template>

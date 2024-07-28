@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import { ref, watch } from 'vue'
-import { resetRulesets, useStorageValue } from './utils'
+import { ref } from 'vue'
+import { useStorageItem } from '~/utils/utils'
 
 defineSlots<{
   default: () => any
 }>()
 
-const init = await useStorageValue<boolean>('init', false)
-const show = ref(init.value)
+const init = await useStorageItem<boolean>('local:init', { fallback: true })
+const show = ref(true)
 
 function handleEnter() {
   resetRulesets()
@@ -21,6 +21,9 @@ function handleEnter() {
     <div v-if="show">
       <slot />
     </div>
+  </Transition>
+
+  <Transition name="slide">
     <NFlex v-if="!init" vertical>
       <NAlert type="warning" title="声明">
         本项目仅供学习交流使用，禁止用于非法用途！<br>
