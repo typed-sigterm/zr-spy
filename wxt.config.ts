@@ -1,8 +1,8 @@
-import { defineConfig } from 'wxt'
-import Vue from '@vitejs/plugin-vue'
-import Components from 'unplugin-vue-components/vite'
-import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
-import { version } from './package.json'
+import { defineConfig } from 'wxt';
+import Vue from '@vitejs/plugin-vue';
+import Components from 'unplugin-vue-components/vite';
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
+import { version } from './package.json';
 
 export default defineConfig({
   manifestVersion: 3,
@@ -50,4 +50,4 @@ export default defineConfig({
       }),
     ],
   }),
-})
+});

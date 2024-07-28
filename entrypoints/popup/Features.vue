@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import { watch } from 'vue'
-import { setRulesetStatus, useStorageItem } from '~/utils/utils'
+import { watch } from 'vue';
+import { setRulesetStatus, useStorageItem } from '~/utils/utils';
 
-const enabled = await useStorageItem<boolean>('local:enabled', { fallback: true })
+const enabled = await useStorageItem<boolean>('local:enabled', { fallback: true });
 watch(enabled, (enabled) => {
-  setRulesetStatus('bypass-password', enabled)
-}, { immediate: true })
+  setRulesetStatus('bypass-password', enabled);
+}, { immediate: true });
 </script>
 
 <template>

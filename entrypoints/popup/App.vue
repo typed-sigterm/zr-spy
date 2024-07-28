@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { zhCN } from 'naive-ui'
-import Features from './Features.vue'
-import Footer from './Footer.vue'
-import Loading from './Loading.vue'
-import WithInitCaution from './WithInitCaution.vue'
+import { zhCN } from 'naive-ui';
+import Features from './Features.vue';
+import Footer from './Footer.vue';
+import Loading from './Loading.vue';
+import WithInitCaution from './WithInitCaution.vue';
 </script>
 
 <template>

@@ -1,3 +1,3 @@
-import ts from '@typed-sigterm/eslint-config'
+import ts from '@typed-sigterm/eslint-config';
 
-export default ts()
+export default ts();

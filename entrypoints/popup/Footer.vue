@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { version } from '~/utils/utils'
-import iconGitHub from '~/assets/github.svg?url'
+import { version } from '~/utils/utils';
+import iconGitHub from '~/assets/github.svg?url';
 </script>
 
 <template>
