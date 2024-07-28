@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { useStorageItem } from '~/utils/utils';
+import { resetRulesets, useStorageItem } from '~/utils/utils';
 
 defineSlots<{
   default: () => any
