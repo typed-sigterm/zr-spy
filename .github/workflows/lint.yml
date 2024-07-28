@@ -3,6 +3,8 @@ name: autofix.ci # needed to securely identify the workflow
 on:
   pull_request:
   push:
+    branches-ignore:
+      - renovate/**
 
 permissions:
   contents: read
@@ -10,7 +12,6 @@ permissions:
 jobs:
   lint:
     runs-on: ubuntu-latest
-    if: ${{ !startsWith(github.ref_name, 'renovate') }}
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
