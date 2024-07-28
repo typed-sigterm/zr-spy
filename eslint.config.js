@@ -1,3 +1,3 @@
-import antfu from '@antfu/eslint-config'
+import ts from '@typed-sigterm/eslint-config'
 
-export default antfu({})
+export default ts()
