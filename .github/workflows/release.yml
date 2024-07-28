@@ -33,6 +33,9 @@ jobs:
         uses: joutvhu/get-release@9a8271732adc3299a22f8ad09b0a67eb3aa836ac # v1
         with:
           tag_name: ${{ github.ref_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - uses: csexton/release-asset-action@v3
         with:
           pattern: .output/*-edge.zip
