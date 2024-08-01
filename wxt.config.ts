@@ -41,7 +41,9 @@ export default defineConfig({
   },
 
   modules: ['@wxt-dev/module-vue'],
+  extensionApi: 'chrome',
   imports: false,
+
   vite: () => ({
     plugins: [
       Components({
