@@ -28,15 +28,8 @@ jobs:
           EDGE_CLIENT_SECRET: ${{ secrets.EDGE_CLIENT_SECRET }}
           EDGE_ACCESS_TOKEN_URL: ${{ secrets.EDGE_ACCESS_TOKEN_URL }}
 
-      - id: get-release
-        uses: joutvhu/get-release@9a8271732adc3299a22f8ad09b0a67eb3aa836ac # v1
-        with:
-          tag_name: ${{ github.ref_name }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: csexton/release-asset-action@v3
+      - uses: csexton/release-asset-action@3567794e918fa3068116688122a76cdeb57b5f09 # v3
         with:
           pattern: .output/*-edge.zip
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          release-url: ${{ steps.get-release.outputs.upload_url }}
+          release-url: ${{ github.event.release.upload_url }}
