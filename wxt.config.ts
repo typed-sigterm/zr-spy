@@ -1,6 +1,6 @@
-import { defineConfig } from 'wxt';
-import Components from 'unplugin-vue-components/vite';
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
+import Components from 'unplugin-vue-components/vite';
+import { defineConfig } from 'wxt';
 import { version } from './package.json';
 
 export default defineConfig({
