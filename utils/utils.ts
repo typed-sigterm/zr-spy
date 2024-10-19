@@ -1,5 +1,5 @@
-import { ref, watch } from 'vue';
 import type { StorageItemKey, WxtStorageItemOptions } from 'wxt/storage';
+import { ref, watch } from 'vue';
 import { storage } from 'wxt/storage';
 
 export { version } from '~/package.json';
