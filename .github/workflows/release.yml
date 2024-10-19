@@ -1,7 +1,8 @@
 name: 发布更新
 
 on:
-  workflow_dispatch:
+  release:
+    types: [published]
 
 permissions:
   contents: write
