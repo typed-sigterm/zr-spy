@@ -14,14 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: denoland/setup-deno@v2
         with:
-          node-version-file: package.json
-          cache: pnpm
+          deno-version-file: .tool-versions
 
-      - run: pnpm install
-      - run: pnpm lint --fix
+      - run: deno install --allow-scripts
+      - run: deno task lint --fix
 
       - uses: autofix-ci/action@v1.3.1
         with:
