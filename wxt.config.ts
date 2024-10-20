@@ -1,7 +1,7 @@
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
 import Components from 'unplugin-vue-components/vite';
 import { defineConfig } from 'wxt';
-import { version } from '~/package.json' with { type: 'json' };
+import { version } from './package.json' with { type: 'json' };
 
 export default defineConfig({
   manifestVersion: 3,
