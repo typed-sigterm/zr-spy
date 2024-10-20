@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { watch } from 'vue';
 import { setRulesetStatus } from '~/utils/utils.ts';
 
 setRulesetStatus('bypass-password', true);
