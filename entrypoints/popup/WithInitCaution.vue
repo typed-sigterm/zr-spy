@@ -1,16 +1,15 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { resetRulesets, useStorageItem } from '~/utils/utils';
+import { useStorageItem } from '~/utils/utils.ts';
 
 defineSlots<{
   default: () => any
 }>();
 
-const init = await useStorageItem<boolean>('local:init', { fallback: true });
-const show = ref(true);
+const init = await useStorageItem<boolean>('local:init', { fallback: false });
+const show = ref(init.value);
 
 function handleEnter() {
-  resetRulesets();
   init.value = true;
   setTimeout(() => show.value = true, 300);
 }

@@ -2,7 +2,7 @@ import type { StorageItemKey, WxtStorageItemOptions } from 'wxt/storage';
 import { ref, watch } from 'vue';
 import { storage } from 'wxt/storage';
 
-export { version } from '~/package.json';
+export { version } from '~/package.json' with { type: 'json' };
 
 /**
  * 响应式获取 storage item。
@@ -12,7 +12,6 @@ export async function useStorageItem<T, D extends Record<string, unknown> = Reco
   const item = storage.defineItem<T, D>(key, options);
   const result = ref(await item.getValue());
   watch(result, (value) => {
-    // @ts-expect-error 我不会
     item.setValue(value);
   });
   return result;
@@ -33,11 +32,4 @@ export function setRulesetStatus(id: string, enabled: boolean) {
       disableRulesetIds: [id],
     });
   }
-}
-
-/** 重置所有规则集状态为默认值。 */
-export function resetRulesets() {
-  return chrome.declarativeNetRequest.updateEnabledRulesets({
-    enableRulesetIds: ['bypass-password'],
-  });
 }
