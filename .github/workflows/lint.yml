@@ -14,12 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-      - uses: denoland/setup-deno@v2
+      - uses: oven-sh/setup-bun@4bc047ad259df6fc24a6c9b0f9a0cb08cf17fbe5 # v2
         with:
-          deno-version-file: .tool-versions
+          bun-version-file: .tool-versions
 
-      - run: deno install --allow-scripts
-      - run: deno task lint --fix
+      - run: bun i --allow-scripts
+      - run: bun lint --fix
 
       - uses: autofix-ci/action@2891949f3779a1cafafae1523058501de3d4e944 # v1.3.1
         with:
