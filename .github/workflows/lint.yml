@@ -2,9 +2,9 @@ name: autofix.ci # needed to securely identify the workflow
 
 on:
   pull_request:
+    branches: [main]
   push:
-    branches-ignore:
-      - renovate/**
+    branches: [main]
 
 permissions:
   contents: read
