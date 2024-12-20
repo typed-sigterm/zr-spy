@@ -10,6 +10,7 @@
     "npm:@types/chrome@^0.0.278": "0.0.278",
     "npm:@types/node@^22.7.7": "22.7.7",
     "npm:@wxt-dev/module-vue@^1.0.1": "1.0.2_wxt@0.19.22__magicast@0.3.5__@types+node@22.7.7__jiti@1.21.6_vite@6.0.5__@types+node@22.7.7__jiti@1.21.6_vue@3.5.13__typescript@5.7.2_@types+node@22.7.7_typescript@5.7.2",
+    "npm:eslint@9.17.0": "9.17.0",
     "npm:eslint@^9.17.0": "9.17.0",
     "npm:husky@^9.1.7": "9.1.7",
     "npm:naive-ui@^2.40.4": "2.40.4_vue@3.5.13__typescript@5.7.2_css-render@0.15.14_date-fns@3.6.0_typescript@5.7.2",
